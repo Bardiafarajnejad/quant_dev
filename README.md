@@ -1,5 +1,5 @@
 # Quant Dev
-**Quant Dev** is a Python toolkit for quantitative finance, engineered to aid the development and analysis of quantitative trading strategies and quantitative risk management.
+**Quant Dev** is a Python toolkit for quantitative finance, engineered for development and analysis of quantitative trading strategies and quantitative risk management.
 
 ## Requirements
 
