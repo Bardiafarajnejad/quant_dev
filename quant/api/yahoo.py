@@ -32,5 +32,6 @@ def ydh(
         interval=frequency,
         threads=threads,
         group_by="tickers",
+        auto_adjust = False
     )
     return df
