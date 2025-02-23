@@ -9,9 +9,9 @@
 [Currently there are no released versions of quant_dev on pip/conda. To use quant_dev, here are the steps you need to set up your machine]:
 
 1. Set your machine's PYTHONPATH environment variable to the quant_dev directory on your machine:
-* a) In Windows, type "envir" in the lower left search box, select "Edit environment variables for your account", and set PYTHONPATH to "{YOUR_PATH}/quant_dev"
+* In Windows, type "envir" in the lower left search box, select "Edit environment variables for your account", and set PYTHONPATH to "{YOUR_PATH}/quant_dev"
 
-* b) In Linux, you have to open either the `~/.bash_profile` or `~/.zshrc` file depending on the terminal you are using, go to the end of the file, and paste export PYTHONPATH="{YOUR_PATH}/quant_dev"
+* In Linux, you have to open either the `~/.bash_profile` or `~/.zshrc` file depending on the terminal you are using, go to the end of the file, and paste export PYTHONPATH="{YOUR_PATH}/quant_dev"
 
 
 2. Create your conda environment:
