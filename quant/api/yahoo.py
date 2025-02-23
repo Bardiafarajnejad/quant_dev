@@ -25,13 +25,13 @@ def ydh(
     threads: bool = False,
 ) -> pd.DataFrame:
 
-    df = yf.download(
+    df: pd.DataFrame = yf.download(
         tickers=tickers,
         start=start_date,
         end=end_date,
         interval=frequency,
         threads=threads,
         group_by="tickers",
-        auto_adjust = False
+        auto_adjust=False,
     )
     return df
