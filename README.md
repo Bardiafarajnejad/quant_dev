@@ -6,7 +6,7 @@
 * Anaconda or Miniconda (Miniconda preferred as it solves conda environments faster). To install Miniconda, follow the link [here](https://docs.anaconda.com/miniconda/install/#).
 
 ## Set Up
-[Given this repo is still under development, there will be no released version of quant_dev on pip/conda. To use this repo in the meantime, here are the steps you need to set up your machine]:
+[Currently there are no released versions of quant_dev on pip/conda. To use quant_dev, here are the steps you need to set up your machine]:
 
 1. Set your machine's PYTHONPATH environment variable to the quant_dev directory on your machine:
 * a) In Windows, type "envir" in the lower left search box, select "Edit environment variables for your account", and set PYTHONPATH to "{YOUR_PATH}/quant_dev"
