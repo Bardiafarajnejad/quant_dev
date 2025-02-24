@@ -39,9 +39,11 @@ def ydh(
         auto_adjust=False,
     )
     if isinstance(fields,str):
-        df = df.loc[:,df.columns.get_level_values(1).isin([fields])].T.reset_index(level=1, drop=True).T
+        column_mask = df.columns.get_level_values(1).isin([fields])
+        df = df.loc[:, df.columns[column_mask]].T.reset_index(level=1, drop=True).T
     elif isinstance(fields, list):
-        df = df.loc[:,df.columns.get_level_values(1).isin(fields)]
+        column_mask = df.columns.get_level_values(1).isin(fields)
+        df = df.loc[:,df.columns[column_mask]]
     else:
         raise TypeError(f"Unexpected fields: {fields}, must use fields specified in {YAHOO_FIELDS}")
     return df
