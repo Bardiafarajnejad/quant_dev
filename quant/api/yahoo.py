@@ -39,14 +39,14 @@ def ydh(
         group_by="tickers",
         auto_adjust=False,
     )
-    if isinstance(fields, str):
+    if fields is None:
+        pass
+    elif isinstance(fields, str):
         column_mask = df.columns.get_level_values(1).isin([fields])
         df = df.iloc[:, column_mask].T.reset_index(level=1, drop=True).T
     elif isinstance(fields, list):
         column_mask = df.columns.get_level_values(1).isin(fields)
         df = df.iloc[:, column_mask]
-    elif fields is None:
-        pass
     else:
         raise TypeError(f"Unexpected fields type: {fields}")
     return df
