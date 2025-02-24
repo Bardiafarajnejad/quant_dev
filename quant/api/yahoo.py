@@ -3,22 +3,23 @@ import pandas as pd
 from typing import Literal, Union, Optional
 
 YAHOO_FREQUENCIES = Literal[
-        "1m",
-        "2m",
-        "5m",
-        "15m",
-        "30m",
-        "60m",
-        "90m",
-        "1h",
-        "1d",
-        "5d",
-        "1wk",
-        "1mo",
-        "3mo",
-    ]
+    "1m",
+    "2m",
+    "5m",
+    "15m",
+    "30m",
+    "60m",
+    "90m",
+    "1h",
+    "1d",
+    "5d",
+    "1wk",
+    "1mo",
+    "3mo",
+]
 
-YAHOO_FIELDS = Literal["Open","High","Low","Close","Adj Close","Volume"]
+YAHOO_FIELDS = Literal["Open", "High", "Low", "Close", "Adj Close", "Volume"]
+
 
 def ydh(
     tickers: Union[str, list[str]],
@@ -38,12 +39,12 @@ def ydh(
         group_by="tickers",
         auto_adjust=False,
     )
-    if isinstance(fields,str):
+    if isinstance(fields, str):
         column_mask = df.columns.get_level_values(1).isin([fields])
         df = df.iloc[:, column_mask].T.reset_index(level=1, drop=True).T
     elif isinstance(fields, list):
         column_mask = df.columns.get_level_values(1).isin(fields)
-        df = df.iloc[:,column_mask]
+        df = df.iloc[:, column_mask]
     elif fields is None:
         pass
     else:
