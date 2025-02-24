@@ -29,7 +29,7 @@ def ydh(
     threads: bool = False,
 ) -> pd.DataFrame:
 
-    df = yf.download(
+    df: pd.DataFrame = yf.download(
         tickers=tickers,
         start=start_date,
         end=end_date,
