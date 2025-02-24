@@ -1,6 +1,6 @@
 import yfinance as yf
 import pandas as pd
-from typing import Literal, Union
+from typing import Literal, Union, Optional
 
 YAHOO_FREQUENCIES = Literal[
         "1m",
@@ -22,7 +22,7 @@ YAHOO_FIELDS = Literal["Open","High","Low","Close","Adj Close","Volume"]
 
 def ydh(
     tickers: Union[str, list[str]],
-    fields: Union[YAHOO_FIELDS, list[YAHOO_FIELDS]],
+    fields: Optional[Union[YAHOO_FIELDS, list[YAHOO_FIELDS]]] = None,
     start_date: pd.Timestamp = pd.Timestamp(1980, 1, 1).floor("D"),
     end_date: pd.Timestamp = pd.Timestamp.now(),
     frequency: YAHOO_FREQUENCIES = "1d",
@@ -44,6 +44,8 @@ def ydh(
     elif isinstance(fields, list):
         column_mask = df.columns.get_level_values(1).isin(fields)
         df = df.iloc[:,column_mask]
+    elif fields is None:
+        pass
     else:
         raise TypeError(f"Unexpected fields type: {fields}")
     return df
