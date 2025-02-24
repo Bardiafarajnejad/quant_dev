@@ -45,5 +45,5 @@ def ydh(
         column_mask = df.columns.get_level_values(1).isin(fields)
         df = df.iloc[:,column_mask]
     else:
-        raise TypeError(f"Unexpected fields: {fields}, must use fields specified in {YAHOO_FIELDS}")
+        raise TypeError(f"Unexpected fields type: {fields}")
     return df
