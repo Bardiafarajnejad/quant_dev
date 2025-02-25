@@ -426,3 +426,5 @@ class TestAPIYahoo(unittest.TestCase):
         )
         self.assertListEqual(list(actual_output.columns.get_level_values(1)), fields)
         self.assertListEqual(list(actual_output.index), [data_date])
+        self.assertListEqual(list(actual_output.columns.names), ["Ticker", "Price"])
+        self.assertEqual(actual_output.index.name, "Date")
