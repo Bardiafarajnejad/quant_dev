@@ -418,9 +418,11 @@ class TestAPIYahoo(unittest.TestCase):
             start_date=data_date,
             end_date=data_date + pd.Timedelta(days=1),
         )
-        
-        self.assertTrue(len(actual_output)>0)
+
+        self.assertTrue(len(actual_output) > 0)
         self.assertFalse(actual_output.empty)
-        self.assertListEqual(list(actual_output.columns.get_level_values(0)), [tickers]*len(fields))
+        self.assertListEqual(
+            list(actual_output.columns.get_level_values(0)), [tickers] * len(fields)
+        )
         self.assertListEqual(list(actual_output.columns.get_level_values(1)), fields)
         self.assertListEqual(list(actual_output.index), [data_date])
