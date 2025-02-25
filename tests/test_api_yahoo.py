@@ -407,3 +407,20 @@ class TestAPIYahoo(unittest.TestCase):
         }
 
         self.assertEqual(mock_yf_download.call_args.kwargs, call_args_expected)
+
+    def test_api_working(self):
+        tickers = "TSLA"
+        fields = ["Open", "High", "Low", "Close", "Adj Close", "Volume"]
+        data_date = pd.Timestamp(2020, 12, 31)
+        actual_output = ydh(
+            tickers,
+            fields=None,
+            start_date=data_date,
+            end_date=data_date + pd.Timedelta(days=1),
+        )
+        
+        self.assertTrue(len(actual_output)>0)
+        self.assertFalse(actual_output.empty)
+        self.assertListEqual(list(actual_output.columns.get_level_values(0)), [tickers]*len(fields))
+        self.assertListEqual(list(actual_output.columns.get_level_values(1)), fields)
+        self.assertListEqual(list(actual_output.index), [data_date])
