@@ -28,6 +28,7 @@ dependencies:
   - click=8.1.7=py311hecd8cb5_0
   - colorama=0.4.6=pyhd8ed1ab_1
   - comm=0.2.2=pyhd8ed1ab_1
+  - coverage=7.6.9=py311h46256e1_0
   - cvxopt=1.3.2=py311h2135409_3
   - debugpy=1.8.12=py311hc356e98_0
   - decorator=5.2.0=pyhd8ed1ab_0
